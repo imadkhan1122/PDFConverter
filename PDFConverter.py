@@ -11,7 +11,7 @@ from sys import platform, exc_info
 def n_files(directory):
     total = 0
     for file in os.listdir(directory):
-        if (file.endswith('.doc') or file.endswith('.docx') or file.endswith('.tmd')):
+        if (file.endswith(('.doc', '.docx')) or file.endswith('.tmd')):
             total += 1
     return total
 
@@ -68,7 +68,7 @@ if __name__ == "__main__":
             from win32com import client
             word = client.DispatchEx('Word.Application')
         for file in os.listdir(directory):
-            if (file.endswith('.doc') or file.endswith('.docx') or file.endswith('.tmd')):
+            if (file.endswith(('.doc', '.docx')) or file.endswith('.tmd')):
                 ending = ""
                 if file.endswith('.doc'):
                     ending = '.doc'
